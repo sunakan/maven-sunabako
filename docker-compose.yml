@@ -8,3 +8,4 @@ services:
     image: maven:3.6.2-jdk-11-slim
     volumes:
       - ./:/app
+      - ./settings.xml:/root/.m2/settings.xml

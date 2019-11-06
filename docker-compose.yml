@@ -1,0 +1,10 @@
+---
+
+version: "3.7"
+
+services:
+  app:
+    working_dir: /app
+    image: maven:3.6.2-jdk-11-slim
+    volumes:
+      - ./:/app

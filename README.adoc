@@ -1,1 +1,36 @@
 == オレオレmavenリポジトリ
+
+==== groupId
+
+----
+...
+<groupId>org.sunabako</groupId>
+...
+----
+
+* Mavenリポジトリのディレクトリ構造になる
+* org/sunabako/ABC-LIB
+** ABC-LIBがライブラリ名
+** その下にバージョン名ディレクトリが続く
+
+
+==== distributionManagement
+
+----
+<distributionManagement>
+    <repository>
+        <id>internal.repo</id>
+        <name>Temporary Staging Repository</name>
+        <url>file://${project.build.directory}/${git.branchName}</url>
+    </repository>
+</distributionManagement>
+----
+
+
+https://www.techscore.com/tech/Java/ApacheJakarta/Maven/2-4/[Maven 2章　Maven 入門]
+
+> リモートリポジトリに配備するには、事前にリモートリポジトリの情報を pom.xml に記述しておく必要があります。
+> リモートリポジトリの情報は、project/distributionManagement 要素の入れ子として repository 要素を追加します。 repository の子要素には id (リポジトリの識別子), name (リポジトリの名前), url (リポジトリの場所を示す URL) などが指定可能です。
+
+* urlを見るとわかりやすい
+** 要はリモートに上げるプロジェクトの
